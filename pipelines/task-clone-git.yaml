@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+ name: clone-git-repo
+spec:
+ params:
+  name: repo-url
+  description: The url of the repo we're cloning
+ steps:
+ - name: hello-step
+   image: ubuntu:20.04
+   script: |
+    #!/bin/bash
+    ls
+    cd workspace/source
+    apt update
+    apt install git -y
+    git clone $(params.repo-url)
+    exit 0
