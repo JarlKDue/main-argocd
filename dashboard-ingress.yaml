@@ -3,13 +3,6 @@ kind: Ingress
 metadata:
   name: kubernetes-dashboard-ingress
   namespace: kubernetes-dashboard
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    # Tell Traefik the backend uses HTTPS
-    traefik.ingress.kubernetes.io/router.tls.passthrough: "false"
-    traefik.http.services.kubernetes-dashboard.loadbalancer.server.scheme: https
-    # Skip certificate verification since dashboard uses self-signed certs
-    traefik.http.services.kubernetes-dashboard.loadbalancer.server.serverstls.insecureskipverify: "true"
 spec:
   rules:
   - host: dashboard.local
