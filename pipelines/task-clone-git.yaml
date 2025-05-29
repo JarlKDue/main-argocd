@@ -4,8 +4,8 @@ metadata:
  name: clone-git-repo
 spec:
  params:
-  name: repo-url
-  description: The url of the repo we're cloning
+  - name: repo-url
+    description: The url of the repo we're cloning
  steps:
  - name: hello-step
    image: ubuntu:20.04
